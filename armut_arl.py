@@ -170,7 +170,8 @@ def visualize_service_network(rules_df, min_lift=1, max_connections=50):
     
     plt.title("Hizmetler Arası İlişki Ağı")
     plt.axis('off')
-    plt.show()
+    plt.savefig('images/service_network.png', bbox_inches='tight', dpi=300)
+    plt.close()
 
 def analyze_service_patterns(df):
     """
@@ -179,6 +180,17 @@ def analyze_service_patterns(df):
     # Hizmet kullanım sıklıkları
     service_freq = df.groupby(['ServiceId', 'CategoryId']).size().reset_index(name='frequency')
     service_freq = service_freq.sort_values('frequency', ascending=False)
+    
+    # Hizmet kullanım sıklığı grafiği
+    plt.figure(figsize=(12, 6))
+    sns.barplot(data=service_freq.head(10), x='ServiceId', y='frequency')
+    plt.title('En Sık Kullanılan 10 Hizmet')
+    plt.xlabel('Hizmet ID')
+    plt.ylabel('Kullanım Sıklığı')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('images/service_usage_frequency.png', dpi=300)
+    plt.close()
     
     # Mevsimsel analiz (eğer CreateDate varsa)
     if 'CreateDate' in df.columns:
@@ -189,7 +201,9 @@ def analyze_service_patterns(df):
         plt.figure(figsize=(15, 6))
         sns.heatmap(seasonal_patterns, cmap='YlOrRd')
         plt.title('Hizmetlerin Aylara Göre Kullanımı')
-        plt.show()
+        plt.tight_layout()
+        plt.savefig('images/seasonal_usage_heatmap.png', dpi=300)
+        plt.close()
     
     # En sık birlikte alınan hizmetler
     print("\nEn Popüler Hizmetler:")

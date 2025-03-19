@@ -115,7 +115,6 @@ Armut---ARL/
 ├── armut_data.csv         # Veri seti
 ├── armut_arl_analysis.md  # Detaylı analiz raporu
 ├── requirements.txt       # Gerekli Python kütüphaneleri
-├── LICENSE               # MIT lisans dosyası
 └── README.md            # Proje dokümantasyonu
 ```
 
@@ -127,4 +126,16 @@ Detaylı analiz sonuçları ve görselleştirmeler için [armut_arl_analysis.md]
 - Yüksek hacimli hizmetlerde %25 kapasite optimizasyonu
 - Çapraz satış oranlarında %20-25 artış potansiyeli
 - Mevsimsel dalgalanmalarda %30 daha iyi planlama imkanı
+
+## Görselleştirmeler ve Analiz Sonuçları
+
+Projede yapılan analizlerin görsel sonuçları:
+
+### Hizmet Kullanım Sıklığı
+![Hizmet Kullanım Sıklığı](images/service_usage_frequency.png)
+
+### Mevsimsel Kullanım Analizi
+![Mevsimsel Kullanım Analizi](images/seasonal_usage_heatmap.png)
+
+Bu görseller, hizmet kullanım örüntülerini ve mevsimsel trendleri açıkça göstermektedir. Detaylı analiz sonuçları için `armut_arl_analysis.md` dosyasını inceleyebilirsiniz.
 
